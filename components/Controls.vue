@@ -2,15 +2,23 @@
 export default {
   name: 'Controls',
   props: {
-    stage: { type: Number, required: true },
+    slideIndex: { type: Number, required: true },
     slidesCount: { type: Number, required: true }
   },
   computed: {
     isLastSlide() {
-      return this.stage === this.slidesCount
+      return this.slideIndex === this.slidesCount
     },
     isFirstSlide() {
-      return this.stage === 0
+      return this.slideIndex === 1
+    },
+    nextSlidePath() {
+      const nextIndex = this.slideIndex + 1
+      return `/slides/${nextIndex}`
+    },
+    prevSlidePath() {
+      const prevIndex = this.slideIndex - 1
+      return `/slides/${prevIndex}`
     }
   },
   methods: {
@@ -25,22 +33,20 @@ export default {
 
 <template>
   <div class="controls">
-    <b-button
+    <nuxt-link
+      v-if="!isFirstSlide"
+      :to="prevSlidePath"
       class="btn btn-prev-slide"
-      variant="secondary"
-      :disabled="isFirstSlide"
-      @click="slideSwitching('backward')"
     >
       {{ '◄' }}
-    </b-button>
-    <b-button
+    </nuxt-link>
+    <nuxt-link
+      v-if="!isLastSlide"
+      :to="nextSlidePath"
       class="btn btn-next-slide"
-      variant="secondary"
-      :disabled="isLastSlide"
-      @click="slideSwitching('forward')"
     >
       {{ '►' }}
-    </b-button>
+    </nuxt-link>
   </div>
 </template>
 

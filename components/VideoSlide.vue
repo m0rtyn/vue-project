@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'VideoStage',
+  name: 'VideoSlide',
   props: {
     video: { type: Object, required: true }
   }
@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <div class="video-stage">
+  <div class="video-slide">
     <video class="video-player" :autoplay="video.auto" controls>
       <!-- TODO: fix video path from json -->
       <!-- <source :src="video.video" type="video/mp4" /> -->
@@ -19,7 +19,7 @@ export default {
 </template>
 
 <style lang="postcss" scoped>
-.video-stage {
+.video-slide {
   background-color: lightgray;
   border-radius: 4px;
   margin-bottom: 88px;

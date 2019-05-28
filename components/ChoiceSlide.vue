@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'ChoiseStage',
+  name: 'ChoiceSlide',
   props: {
     choices: { type: Array, required: true }
   },
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <div class="choise-stage">
+  <div class="choise-slide">
     <h2>На какой сам сядешь?</h2>
     <div
       v-for="choise in choices"
@@ -45,7 +45,7 @@ export default {
 </template>
 
 <style lang="postcss" scoped>
-.choise-stage {
+.choise-slide {
   display: flex;
   align-items: center;
   justify-content: center;

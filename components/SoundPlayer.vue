@@ -36,7 +36,7 @@ export default {
 <style lang="postcss" scoped>
 .sound-player {
   width: auto;
-  margin: 16px;
+  margin: 16px auto;
   margin-top: auto;
 
   @media screen and (min-width: 768px) {

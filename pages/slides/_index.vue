@@ -1,16 +1,20 @@
 <script>
-// import Header from '~/components/Header.vue'
-import Slide from '~/components/Slide.vue'
 import fakeDataFromServer from '~/static/fakeDataFromServer.json'
+import Slide from '~/components/Slide.vue'
 
 export default {
   components: {
-    // Header,
     Slide
   },
   data() {
     return {
-      fakeDataFromServer: fakeDataFromServer
+      index: this.$route.params.index,
+      slides: fakeDataFromServer.slides
+    }
+  },
+  computed: {
+    slide() {
+      return this.slides.find((el, i) => i + 1 === parseInt(this.index))
     }
   }
 }
@@ -19,7 +23,7 @@ export default {
 <template>
   <section class="app">
     <!-- <Header /> -->
-    <Slide :data-from-server="fakeDataFromServer" />
+    <Slide :slide="slide" :slides-count="slides.length" />
   </section>
 </template>
 
