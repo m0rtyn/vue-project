@@ -1,25 +1,16 @@
 <script>
-// import Header from '~/components/Header.vue'
-import Slide from '~/components/Slide.vue'
-import fakeDataFromServer from '~/static/fakeDataFromServer.json'
-
+import Header from '~/components/Header.vue'
 export default {
   components: {
-    // Header,
-    Slide
-  },
-  data() {
-    return {
-      fakeDataFromServer: fakeDataFromServer
-    }
+    Header
   }
 }
 </script>
 
 <template>
   <section class="app">
-    <!-- <Header /> -->
-    <Slide :data-from-server="fakeDataFromServer" />
+    <Header />
+    <nuxt-link to="/slides/1">Начать игру</nuxt-link>
   </section>
 </template>
 
@@ -27,19 +18,8 @@ export default {
 .app {
   height: 100vh;
   display: flex;
+  flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
-}
-
-.stages {
-  @media (orientation: landscape) {
-    max-width: 80vw;
-    height: 100vh;
-  }
-
-  @media (orientation: portrait) {
-    width: 100vw;
-    height: 80vh;
-  }
+  justify-content: flex-start;
 }
 </style>
