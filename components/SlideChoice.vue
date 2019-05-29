@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'ChoiceSlide',
+  name: 'SlideChoice',
   props: {
     choices: { type: Array, required: true }
   },

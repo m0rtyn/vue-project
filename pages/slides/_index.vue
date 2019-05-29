@@ -21,7 +21,12 @@ export default {
 </script>
 
 <template>
-  <section class="app">
+  <section
+    class="app"
+    :style="{
+      'background-image': 'linear-gradient(lightgreen, lightblue)'
+    }"
+  >
     <!-- <Header /> -->
     <Slide :slide="slide" :slides-count="slides.length" />
   </section>

@@ -1,7 +1,7 @@
 <script>
 import SoundPlayer from '~/components/SoundPlayer.vue'
-import ChoiceSlide from '~/components/ChoiceSlide.vue'
-import VideoSlide from '~/components/VideoSlide.vue'
+import SlideChoice from '~/components/SlideChoice.vue'
+import SlideVideo from '~/components/SlideVideo.vue'
 import TextContent from '~/components/TextContent.vue'
 import Controls from '~/components/Controls.vue'
 
@@ -10,8 +10,8 @@ export default {
   components: {
     Controls,
     SoundPlayer,
-    ChoiceSlide,
-    VideoSlide,
+    SlideChoice,
+    SlideVideo,
     TextContent
   },
   props: {
@@ -23,16 +23,16 @@ export default {
 
 <template>
   <div class="slides">
-    <section>
-      <div v-if="slide.html" class="slide">
+    <section class="slide">
+      <div v-if="slide.html">
         <TextContent :content="slide.html" />
         <SoundPlayer :audio="slide.voice" autoplay />
       </div>
-      <div v-if="slide.video" class="slide">
-        <VideoSlide :video="slide" />
+      <div v-if="slide.video">
+        <SlideVideo :video="slide" />
       </div>
-      <div v-if="slide.choices" class="slide">
-        <ChoiceSlide :choices="slide.choices" />
+      <div v-if="slide.choices">
+        <SlideChoice :choices="slide.choices" />
         <SoundPlayer :audio="slide.voice" autoplay />
       </div>
     </section>
