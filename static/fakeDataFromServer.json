@@ -3,15 +3,15 @@
   "slides": [
     {
       "index": 1,
-      "slideType": "text",
+      "type": "text",
       "html": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies nibh non nisi aliquet mattis. Suspendisse semper sollicitudin ultricies. Curabitur tincidunt ante turpis, vitae tempus turpis bibendum a. Morbi volutpat tellus sit amet pharetra viverra. Morbi semper nulla nisi, vitae pellentesque arcu ultrices sed. Sed interdum pellentesque aliquet. Vivamus porta, mauris a eleifend vehicula, est mi varius neque, et consequat ex nisi vitae dolor.",
       "voice": "https://www.pacdv.com/sounds/voices/president-is-moron.wav",
-      "background": true,
+      "background": "/some/path",
       "hide_arrows": false
     },
     {
       "index": 2,
-      "slideType": "test",
+      "type": "video",
       "video": "~/assets/rickroll.mp4",
       "auto": false,
       "background": "",
@@ -19,22 +19,23 @@
     },
     {
       "index": 3,
-      "slideType": "test",
+      "type": "choice",
+      "right_choise": "156523",
       "choices": [
         {
-          "id": 156523,
+          "id": "156523",
           "image": "https://static1.squarespace.com/static/52e808d1e4b07693f0d210b8/t/59e86e18a8b2b05dc4d8d846/1508844599754/heal_s_discovers_solidwool-11_detail_1_.jpg?format=1000w"
         },
         {
-          "id": 151523,
+          "id": "151523",
           "image": "https://static1.squarespace.com/static/52e808d1e4b07693f0d210b8/t/59e86e18a8b2b05dc4d8d846/1508844599754/heal_s_discovers_solidwool-11_detail_1_.jpg?format=1000w"
         },
         {
-          "id": 156123,
+          "id": "156123",
           "image": "https://static1.squarespace.com/static/52e808d1e4b07693f0d210b8/t/59e86e18a8b2b05dc4d8d846/1508844599754/heal_s_discovers_solidwool-11_detail_1_.jpg?format=1000w"
         },
         {
-          "id": 36452,
+          "id": "36452",
           "image": "https://static1.squarespace.com/static/52e808d1e4b07693f0d210b8/t/59e86e18a8b2b05dc4d8d846/1508844599754/heal_s_discovers_solidwool-11_detail_1_.jpg?format=1000w"
         }
       ],
@@ -44,7 +45,7 @@
     },
     {
       "index": 4,
-      "slideType": "test",
+      "type": "text",
       "html": "Ещё один html-слайд",
       "voice": "https://www.pacdv.com/sounds/voices/blah-blah-blah.wav",
       "background": "",

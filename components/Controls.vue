@@ -3,7 +3,8 @@ export default {
   name: 'Controls',
   props: {
     slideIndex: { type: Number, required: true },
-    slidesCount: { type: Number, required: true }
+    slidesCount: { type: Number, required: true },
+    hideArrows: { type: Boolean, default: false }
   },
   computed: {
     isLastSlide() {
@@ -34,45 +35,45 @@ export default {
 <template>
   <div class="controls">
     <nuxt-link
-      v-if="!isFirstSlide"
-      :to="prevSlidePath"
+      v-if="!isFirstSlide && !hideArrows"
       class="btn btn-prev-slide"
+      :to="prevSlidePath"
     >
-      {{ '◄' }}
+      <font-awesome-icon icon="chevron-circle-left" />
     </nuxt-link>
     <nuxt-link
-      v-if="!isLastSlide"
-      :to="nextSlidePath"
+      v-if="!isLastSlide && !hideArrows"
       class="btn btn-next-slide"
+      :to="nextSlidePath"
     >
-      {{ '►' }}
+      <font-awesome-icon icon="chevron-circle-right" />
     </nuxt-link>
   </div>
 </template>
 
 <style lang="postcss" scoped>
-.btn {
-  font-size: 1.5rem;
-  padding: 8px 32px;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 54px;
+.controls {
+  width: 100vw;
+  display: flex;
+  align-self: flex-end;
 
-  @media screen and (min-width: 768px) {
-    padding: 8px 16px;
-    height: 50%;
-    margin: auto;
-    font-size: 1.5rem;
-    bottom: 16px;
-    top: 0;
+  @media screen and (min-width: 576px) {
+    position: absolute;
   }
+}
+
+.btn {
+  color: var(--secondary);
+  font-size: 3rem;
+  line-height: 1;
+  border-radius: 50%;
 
   &-next-slide {
-    right: 0px;
+    margin-left: auto;
   }
 
   &-prev-slide {
-    left: 0px;
+    margin-right: auto;
   }
 }
 </style>

@@ -15,7 +15,6 @@ export default {
 
 <style lang="postcss" scoped>
 .text-content {
-  background-color: lightgray;
   border-radius: 4px;
   padding: 16px;
   flex-grow: 1;

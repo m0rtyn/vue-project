@@ -2,12 +2,12 @@
 export default {
   name: 'SlideChoice',
   props: {
-    choices: { type: Array, required: true }
+    choices: { type: Array, required: true },
+    rightChoise: { type: String, required: true }
   },
   data() {
     return {
       answer: null,
-      rightChoise: 156523,
       isAnswered: false
     }
   },
@@ -33,26 +33,38 @@ export default {
 <template>
   <div class="choise-slide">
     <h2>На какой сам сядешь?</h2>
-    <div
-      v-for="choise in choices"
-      :key="choise.id"
-      :class="['choise', isAnswered ? isRightChoise(choise.id) : null]"
-      @click="makeChoose(choise.id)"
-    >
-      <img :src="choise.image" />
+    <div class="choises-wrapper">
+      <div
+        v-for="choise in choices"
+        :key="choise.id"
+        :class="['choise', isAnswered ? isRightChoise(choise.id) : null]"
+        @click="makeChoose(choise.id)"
+      >
+        <img :src="choise.image" />
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .choise-slide {
+  padding: 16px;
+}
+
+.choises-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 
-  @media screen and (min-width: 500px) {
+  @media screen and (orientation: landscape) {
+    flex-wrap: nowrap;
+  }
+
+  @media screen and (min-width: 576px) {
+    /* flex-direction: row; */
+    width: auto;
   }
 }
 
@@ -70,12 +82,12 @@ export default {
   border: 2px solid var(--gray);
   border-radius: 4px;
   margin: 4px;
+  background-color: white;
 
   @media screen and (min-width: 768px) {
     width: auto;
     margin-bottom: 32px;
-    max-height: 33%;
-    max-width: 33%;
+    max-width: 20%;
   }
 
   &:hover {

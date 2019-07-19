@@ -22,17 +22,20 @@ export default {
 </script>
 
 <template>
-  <div class="slides">
+  <div class="scene">
     <section class="slide">
-      <div v-if="slide.html">
+      <div v-if="slide.type === 'text'">
         <TextContent :content="slide.html" />
         <SoundPlayer :audio="slide.voice" autoplay />
       </div>
-      <div v-if="slide.video">
+      <div v-if="slide.type === 'video'">
         <SlideVideo :video="slide" />
       </div>
-      <div v-if="slide.choices">
-        <SlideChoice :choices="slide.choices" />
+      <div v-if="slide.type === 'choice'">
+        <SlideChoice
+          :choices="slide.choices"
+          :right-choise="slide.right_choise"
+        />
         <SoundPlayer :audio="slide.voice" autoplay />
       </div>
     </section>
@@ -47,20 +50,20 @@ export default {
     <Controls
       :slide-index="slide.index"
       :slides-count="slidesCount"
-      @slide-switching="switchSlide"
+      :hide-arrows="slide.hide_arrows"
     />
   </div>
 </template>
 
 <style lang="postcss" scoped>
-.slides {
+.scene {
   width: 100%;
+  height: 80%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-grow: 1;
   flex-wrap: wrap;
-  position: relative;
   background-color: white;
 }
 
@@ -70,15 +73,16 @@ export default {
   margin: 0;
   display: flex;
   flex-flow: column nowrap;
-  height: calc(100% - 54px);
+  max-height: 100%;
 
   @media screen and (min-width: 768px) {
-    margin: 0 64px;
+    /* margin: 0 64px; */
   }
 }
 
 .progressbar {
   width: 80%;
   margin: 16px;
+  align-self: flex-end;
 }
 </style>

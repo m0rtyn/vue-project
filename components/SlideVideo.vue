@@ -20,17 +20,28 @@ export default {
 
 <style lang="postcss" scoped>
 .video-slide {
-  background-color: lightgray;
   border-radius: 4px;
-  margin-bottom: 88px;
+  height: 100%;
 
   @media screen and (min-width: 576px) {
     padding: 16px;
     margin: 0;
+    height: auto;
+    /* max-height: 30%; */
   }
 }
 
 video {
+  display: block;
   width: 100%;
+
+  @media screen and (min-width: 576px) {
+    max-width: 80vw;
+    margin: auto;
+  }
+
+  @media screen and (orientation: landscape) {
+    max-height: 56vh;
+  }
 }
 </style>

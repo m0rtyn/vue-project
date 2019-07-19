@@ -5,20 +5,9 @@ export default {
     audio: { type: String, required: true },
     autoplay: { type: Boolean, default: false }
   },
-  data() {
-    return {
-      isPlayed: true
-    }
-  },
-  computed: {
-    playButtonText() {
-      return this.isPlayed ? 'Replay' : 'Play'
-    }
-  },
   methods: {
     playSound() {
       this.$refs.player.play()
-      this.isPlayed = true
     }
   }
 }
@@ -27,8 +16,8 @@ export default {
 <template>
   <div class="sound-player">
     <audio ref="player" :src="audio" :autoplay="autoplay" />
-    <b-button @click="playSound">
-      {{ playButtonText }}
+    <b-button class="button-play" @click="playSound">
+      <font-awesome-icon icon="redo" />
     </b-button>
   </div>
 </template>
@@ -36,13 +25,22 @@ export default {
 <style lang="postcss" scoped>
 .sound-player {
   width: auto;
-  margin: 16px auto;
-  margin-top: auto;
+  position: absolute;
+  padding: 8px;
+  top: 0;
+  right: 0;
 
   @media screen and (min-width: 768px) {
     margin: 0;
     margin-left: auto;
     order: -1;
   }
+}
+
+.button-play {
+  font-size: 1.5rem;
+  padding: 8px;
+  line-height: 1;
+  border-radius: 50%;
 }
 </style>

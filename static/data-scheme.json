@@ -1,0 +1,47 @@
+{
+  "version": "???",
+  "slides": [
+    {
+      "index": 1,
+      "type": "text",
+      "html": "...",
+      "voice": "some/path",
+      "background": "some/path",
+      "hide_arrows": false
+    },
+    {
+      "index": 2,
+      "type": "video",
+      "video": "some/path",
+      "auto": false,
+      "background": "some/path",
+      "hide_arrows": false
+    },
+    {
+      "index": 3,
+      "type": "choice",
+      "right_choise": "1234",
+      "choices": [
+        {
+          "id": "1234",
+          "image": "some/path"
+        },
+        {
+          "id": "151523",
+          "image": "some/path"
+        },
+        {
+          "id": "156123",
+          "image": "some/path"
+        },
+        {
+          "id": "36452",
+          "image": "some/path"
+        }
+      ],
+      "voice": "some/path",
+      "background": "some/path",
+      "hide_arrows": false
+    },
+  ]
+}

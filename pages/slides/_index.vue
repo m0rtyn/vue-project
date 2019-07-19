@@ -27,7 +27,6 @@ export default {
       'background-image': 'linear-gradient(lightgreen, lightblue)'
     }"
   >
-    <!-- <Header /> -->
     <Slide :slide="slide" :slides-count="slides.length" />
   </section>
 </template>
@@ -42,13 +41,13 @@ export default {
 
 .stages {
   @media (orientation: landscape) {
-    max-width: 80vw;
+    max-width: 90vw;
     height: 100vh;
   }
 
   @media (orientation: portrait) {
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
   }
 }
 </style>
